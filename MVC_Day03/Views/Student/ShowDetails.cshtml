@@ -1,0 +1,21 @@
+﻿@model Student
+
+<h1>Student Details</h1>
+
+<h2>Name: @Model.Name</h2>
+<p>ID: @Model.Id</p>
+<p>Age: @Model.Age</p>
+<p>Department: @Model.Department?.Name</p>
+
+<h3>Courses & Grades:</h3>
+<ul>
+    @if (Model.StuCrsReses != null)
+    {
+        @foreach (var item in Model.StuCrsReses)
+        {
+            <li>Course: @item.Course?.Name - Grade: @item.Grade</li>
+        }
+    }
+</ul>
+
+<a asp-action="ShowAll">Back to All Students</a>
